@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  nl.koppeltaal.springbootstarterjwks.config.JwksConfiguration
+  nl.koppeltaal.springbootstarterjwks.config.JwksConfiguration,\
+  nl.koppeltaal.springbootstarterjwks.controller.JwksController
