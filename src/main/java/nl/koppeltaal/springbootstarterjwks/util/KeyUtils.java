@@ -66,20 +66,16 @@ public class KeyUtils {
 	}
 
 	private static byte[] getEncodedKey(String key) {
-		try {
-			BufferedReader br = new BufferedReader(new StringReader(key));
-			StringBuilder rawKey = new StringBuilder();
-			String line;
-			while ((line = br.readLine()) != null) {
-				if (!StringUtils.startsWith(line, "----")) {
-					rawKey.append(line);
-				}
-			}
 
-			return Base64.decodeBase64(rawKey.toString());
-		} catch (IOException e) {
-			throw new RuntimeException(e);
+		if(StringUtils.isNoneBlank(key)) {
+			String cleanPublicKey = key.replace("\r", "");
+			cleanPublicKey = cleanPublicKey.replace("\n", "");
+			cleanPublicKey = cleanPublicKey.replaceAll("-----.*?-----", "");
+
+			return Base64.decodeBase64(cleanPublicKey);
 		}
+
+		throw new IllegalArgumentException("Cannot generate encoded key, it's empty or null");
 	}
 
 	public static RSAPrivateKey getRsaPrivateKey(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
