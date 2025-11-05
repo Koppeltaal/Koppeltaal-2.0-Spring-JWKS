@@ -86,7 +86,6 @@ public class KeyUtils {
 
 	public static KeyPair getRsaKeyPair(String publicKey, String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		return new KeyPair(getRsaPublicKey(publicKey), getRsaPrivateKey(privateKey));
-
 	}
 
 	public static String getFingerPrint(PublicKey publicKey) throws JoseException {

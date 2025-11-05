@@ -10,7 +10,7 @@ package nl.koppeltaal.springbootstarterjwks.config;
 
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import nl.koppeltaal.springbootstarterjwks.util.KeyUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
